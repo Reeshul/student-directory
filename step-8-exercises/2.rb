@@ -1,9 +1,9 @@
-# QUESTION 4
+# QUESTION 2
 
 # ===============
 
-# Rewrite the each() method that prints all students using while or until control
-# flow methods.
+# Modify your program to only print the students whose name begins with a specific
+# letter.
 
 # ===============
 
@@ -31,31 +31,27 @@ def print_header
   puts "-------------"
 end
 
-# print method using while loop
-
 def print(students)
-  student_counter_index_thingamajig = 0
-  while student_counter_index_thingamajig < students.count
-    puts "#{students[student_counter_index_thingamajig][:name]} (#{students[student_counter_index_thingamajig][:cohort]} cohort)"
-    student_counter_index_thingamajig += 1
+  puts "Student names beginning with: (Enter a letter)"
+  letter = gets.chomp
+  number_of_matches = 0
+  students.each do |student|
+    if student[:name].start_with?(letter.upcase, letter.downcase)
+      puts "#{student[:name]} (#{student[:cohort]} cohort)"
+      number_of_matches += 1
+    end  
   end
-end
-
-# print method using until loop
-
-def print_2(students)
-  student_counter_index_thingamajig = 0
-  until student_counter_index_thingamajig >= students.count
-    puts "#{students[student_counter_index_thingamajig][:name]} (#{students[student_counter_index_thingamajig][:cohort]} cohort)"
-    student_counter_index_thingamajig += 1
-  end
+  puts "\n"
+  puts "We have #{number_of_matches} students whose name begins with #{letter}"
+  puts "\n"
 end
 
 def print_footer(names)
   puts "Overall, we have #{names.count} great students"
 end
 
+#call the methods
 students = input_students
 print_header
-print_2(students)
+print(students)
 print_footer(students)

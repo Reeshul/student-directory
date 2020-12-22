@@ -1,10 +1,9 @@
-# QUESTION 1
+# QUESTION 4
 
 # ===============
 
-# We're using the each() method to iterate over an array of students. How can you
-# modify the program to print a number before the name of each student, e.g. "1. Dr.
-# Hannibal Lecter"? Hint: look into each_with_index()
+# Rewrite the each() method that prints all students using while or until control
+# flow methods.
 
 # ===============
 
@@ -32,9 +31,23 @@ def print_header
   puts "-------------"
 end
 
+# print method using while loop
+
 def print(students)
-  students.select.with_index do |student, idx|
-    puts "#{idx + 1}. #{student[:name]} (#{student[:cohort]} cohort)"
+  i = 0
+  while i < students.count
+    puts "#{students[i][:name]} (#{students[i][:cohort]} cohort)"
+    i += 1
+  end
+end
+
+# print method using until loop
+
+def print_2(students)
+  i = 0
+  until i >= students.count
+    puts "#{students[i][:name]} (#{students[i][:cohort]} cohort)"
+    i += 1
   end
 end
 
@@ -42,7 +55,8 @@ def print_footer(names)
   puts "Overall, we have #{names.count} great students"
 end
 
+#call the methods
 students = input_students
 print_header
-print(students)
+print_2(students)
 print_footer(students)

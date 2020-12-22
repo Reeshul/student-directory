@@ -1,9 +1,9 @@
-# QUESTION 2
+# QUESTION 3
 
 # ===============
 
-# Modify your program to only print the students whose name begins with a specific
-# letter.
+# Modify your program to only print the students whose name is shorter than 12
+# characters.
 
 # ===============
 
@@ -31,18 +31,25 @@ def print_header
   puts "-------------"
 end
 
-def print(students)
+def print_names_with_max_characters(students)
+  puts "Names with maximum number of characters of: (Enter a number)"
+  max_length = gets.chomp
+  number_of_matches = 0
   students.each do |student|
-    #print student only if name begins with an M
-    puts "#{student[:name]} (#{student[:cohort]} cohort)" if student[:name][0].upcase == "M"
+    if student[:name].length <= max_length.to_i
+      puts "#{student[:name]} (#{student[:cohort]} cohort)"
+      number_of_matches += 1
+    end  
   end
+  puts "Listed above we have #{number_of_matches} students with a name that has a maximum #{max_length} characters"
 end
 
 def print_footer(names)
-  puts "Overall, we have #{names.count} great students"
+  puts "And overall, we have #{names.count} great students"
 end
 
+#call the methods
 students = input_students
 print_header
-print(students)
+print_names_with_max_characters(students)
 print_footer(students)

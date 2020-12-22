@@ -1,4 +1,16 @@
-# Working code from the end of step 7 (asking for user input)
+# QUESTION 11
+
+# ===============
+
+# Once you have completed the "Asking for user input" section, open this file. It's
+# Ruby code but it has some typos. Copy it to a local file and open it in Atom without
+# syntax highlighting. To do this, select "Plain Text" in the lower right corner of the
+# window.
+
+# Now, find all typos in that file and correct them. Use your experience, online
+# documentation, etc. to find all mistakes. Run the script in the terminal from time to
+# time to make sure it works as it should. Google the errors Ruby will give you, think
+# about what they could mean, try different things but don't look the answer up :)
 
 # ===============
 
@@ -9,8 +21,8 @@ def input_students
   students = []
   # get the first name
   name = gets.chomp
-  # while the name is not empty repeat this code
-  while !name.empty? do
+  # while the name is not empty, repeat this code
+  while !name.empty?
     # add the student hash to the array
     students << {name: name, cohort: :november}
     puts "Now we have #{students.count} students"
@@ -22,7 +34,7 @@ def input_students
 end
 
 def print_header
-  puts "The students of my cohort at Makers"
+  puts "The students of my cohort at Makers Academy"
   puts "-------------"
 end
 
@@ -35,6 +47,7 @@ end
 def print_footer(names)
   puts "Overall, we have #{names.count} great students"
 end
+
 
 students = input_students
 print_header
